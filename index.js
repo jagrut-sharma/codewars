@@ -1,4 +1,83 @@
+// Complete the function that accepts a string parameter, and reverses each word in the string. All spaces in the string should be retained.
 
+// Examples
+// "This is an example!" ==> "sihT si na !elpmaxe"
+// "double  spaces"      ==> "elbuod  secaps"
+
+function reverseWords(str) {
+  const splitStr = str.split(' ');
+  return splitStr.map((ele) => ele.split('').reverse().join('')).join(' ');
+}
+
+const reverseWords2 = str =>
+  str.replace(/\S+/g, val => {
+    return [...val].reverse().join(``);
+  });
+
+console.log(reverseWords2("double  spaces"));
+console.log([..."double"]);
+
+/*
+// Reverse String
+
+function reverseWords(str) {
+  const splitStr = str.split('');
+  // console.log(splitStr);
+  let reverseStr = '';
+  for (let i = splitStr.length - 1; i >= 0; i--) {
+    reverseStr += splitStr[i];
+  }
+  return reverseStr;
+}
+
+console.log(reverseWords("This is an example!"));
+console.log(reverseWords("double  spaces"));
+
+/*
+// Given a string of digits, you should replace any digit below 5 with '0' and any digit 5 and above with '1'. Return the resulting string.
+
+function fakeBin(x){
+  const regex = /\d/g;
+  return x.replace(regex, regex => regex < 5 ? 0 : 1);
+}
+
+
+console.log(fakeBin('45385593107843568'));
+
+/*
+// Implement a function that adds two numbers together and returns their sum in binary. The conversion can be done before, or after the addition.
+
+// The binary number returned should be a string.
+
+// Examples:(Input1, Input2 --> Output (explanation)))
+
+// 1, 1 --> "10" (1 + 1 = 2 in decimal or 10 in binary)
+// 5, 9 --> "1110" (5 + 9 = 14 in decimal or 1110 in binary)
+
+function addBinary(a, b) {
+  let sum = Number(a) + Number(b);
+  console.log('Sum = ' + sum);
+  let num = "";
+  while (sum !== 0) {
+    const rem = Math.floor(sum % 2);
+    num += rem;
+    sum = Math.floor(sum / 2);
+  }
+  return num.split("").reverse().join(""); // 11001
+}
+
+function addBinary2(a, b) {
+  return (Number(a) + Number(b)).toString(2); // 11001
+}
+
+function addBinary3(a, b) {
+  let sum = Number(a) + Number(b);
+  return parseInt(sum, 10); // Does not work as parseInt only converts to number
+}
+
+console.log(addBinary(12, 13));
+console.log(addBinary2(12, 13));
+console.log(addBinary3(12, 13));
 
 /*
 // Find and match a word with two alternative spellings
