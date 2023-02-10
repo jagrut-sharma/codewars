@@ -1,3 +1,6 @@
+
+
+/*
 // Find and match a word with two alternative spellings
 
 const regexPattern = /ambi[ea]nce/;
