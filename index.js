@@ -1,21 +1,90 @@
-// Complete the function that accepts a string parameter, and reverses each word in the string. All spaces in the string should be retained.
+// Simple, given a string of words, return the length of the shortest word(s).
 
-// Examples
-// "This is an example!" ==> "sihT si na !elpmaxe"
-// "double  spaces"      ==> "elbuod  secaps"
+// String will never be empty and you do not need to account for different data types.
 
-function reverseWords(str) {
-  const splitStr = str.split(' ');
-  return splitStr.map((ele) => ele.split('').reverse().join('')).join(' ');
+function findShort(s){
+  return Math.min(...s.split(" ").map(word => word.length))
 }
 
-const reverseWords2 = str =>
-  str.replace(/\S+/g, val => {
-    return [...val].reverse().join(``);
-  });
+console.log(findShort('bitcoin take over the world maybe who knows perhaps'));
 
-console.log(reverseWords2("double  spaces"));
-console.log([..."double"]);
+/*
+function printerError(s) {
+  const output = [...s].map((ele) => (!/[a-m]/.test(ele))? ele : '').filter(ele => ele).length;
+  return `${output.length}/${s.length}`;
+}
+
+function printerError2(s) {
+  const output = s.match(/[n-z]/g);
+  return `${output.length}/${s.length}`;
+}
+
+console.log(printerError2(`aaaaaaaaaaaaaaaabbbbbbbbbbbbbbbbbbmmmmmmmmmmmmmmmmmmmxyz`));
+/*
+// Given two integers a and b, which can be positive or negative, find the sum of all the integers between and including them and return it. If the two numbers are equal return a or b.
+
+// Note: a and b are not ordered!
+//  assert.strictEqual(getSum(0,-1), -1);
+//     assert.strictEqual(getSum(0, 1),  1);
+//     assert.strictEqual(getSum(2, 2),  2);
+
+function getSum(a, b) {
+  let max = a;
+  let min = b;
+  if (max < min) {
+    [max, min] = [min, max];
+  }
+  // console.log(max);
+  let sum = 0;
+  for (let i = min; i <= max; i++) {
+    sum += i;
+  }
+  return sum;
+}
+
+function GetSum(a, b) {
+  return (Math.abs(a - b) + 1) * (a + b) / 2;
+}
+getSum(2, 25);
+console.log(GetSum(-1, -3));
+/*
+function sum(a, b) {
+  const total = a + b;
+  return total;
+}
+
+const add = sum();
+console.log(add);
+
+  // console.log();
+// function countBy(x, n) {
+//   const arr = [];
+//   for (let a = 1; a <= n; a++) {
+//     arr.push(x * a);
+//   }
+//   return arr;
+// }
+
+// countBy(2, 5);
+
+// // Complete the function that accepts a string parameter, and reverses each word in the string. All spaces in the string should be retained.
+
+// // Examples
+// // "This is an example!" ==> "sihT si na !elpmaxe"
+// // "double  spaces"      ==> "elbuod  secaps"
+
+// function reverseWords(str) {
+//   const splitStr = str.split(' ');
+//   return splitStr.map((ele) => ele.split('').reverse().join('')).join(' ');
+// }
+
+// const reverseWords2 = str =>
+//   str.replace(/\S+/g, val => {
+//     return [...val].reverse().join(``);
+//   });
+
+// console.log(reverseWords2("double  spaces"));
+// console.log([..."double"]);
 
 /*
 // Reverse String
